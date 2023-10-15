@@ -1,67 +1,83 @@
 //What is the output of this code?
 // Q1
-// What is the output of this code?
-class Dog {
-  breed: string;
-  constructor(breed: string) {
-    this.breed = breed;
-  }
-  bark() {
-    console.log("Woof! Woof!");
-  }
+ // What is the output of this code?
+interface Animal {
+    name: string;
+    sound: string;
 }
 
-const myDog = new Dog("Labrador");
-myDog.bark();
-console.log(myDog.breed);
+const dog: Animal = {
+    name: "Buddy",
+    sound: "Woof!",
+};
 
-//Q2
+console.log(dog.name + " says " + dog.sound);
+
+// Q2
 // What is the output of this code?
-class Car {
-  brand: string;
-  constructor(brand: string) {
-      this.brand = brand;
-  }
-  start() {
-      console.log(`${this.brand} is starting...`);
-  }
+interface Shape {
+    area(): number;
 }
 
-const myCar = new Car("Toyota");
-myCar.start();
-console.log(myCar.brand);
+class Circle implements Shape {
+    constructor(private radius: number) {}
 
-//Q3
-// What is the output of this code?
-class Circle {
-  radius: number;
-  constructor(radius: number) {
-      this.radius = radius;
-  }
-  calculateArea() {
-      return Math.PI * this.radius ** 2;
-  }
+    area() {
+        return Math.PI * this.radius * this.radius;
+    }
 }
 
 const myCircle = new Circle(5);
-console.log(`The area of the circle is ${myCircle.calculateArea()} square units.`);
+console.log("Area of the circle: " + myCircle.area());
 
-//Q4
-// What is the output of this code?
-class Person {
-  name: string;
-  age: number;
-  constructor(name: string, age: number) {
-      this.name = name;
-      this.age = age;
-  }
-  greet() {
-      console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-  }
+// Q3
+interface Person {
+    name: string;
+    greet(): string;
 }
 
-const person1 = new Person("Alice", 30);
-const person2 = new Person("Bob", 25);
+class Greeting implements Person {
+    constructor(private name: string) {}
 
-person1.greet();
-person2.greet();
+    greet() {
+        return "Hello, my name is " + this.name;
+    }
+}
+
+const person = new Greeting("Alice");
+console.log(person.greet());
+
+// Q4
+// What is the output of this code?
+interface Vehicle {
+    speed: number;
+}
+
+class Car implements Vehicle {
+    speed: number;
+    constructor(speed: number) {
+        this.speed = speed;
+    }
+    move() {
+        console.log("Car is moving at " + this.speed + " km/h.");
+    }
+}
+
+const myCar = new Car(60);
+myCar.move();
+
+// Q5
+// What is the output of this code?
+interface Message {
+    text: string;
+}
+
+function printMessage(msg: Message) {
+    console.log(msg.text);
+}
+
+const greeting: Message = {
+    text: "Hello, TypeScript!"
+};
+
+printMessage(greeting);
