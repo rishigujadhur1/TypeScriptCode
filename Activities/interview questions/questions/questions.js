@@ -1,21 +1,30 @@
-// 3 Explain the difference between let, const, and var for variable declaration.
+// Question 1: Type Annotations
 
-// 7 What is the difference between "null" and "undefined" in JavaScript?
+// What is the purpose of type annotations in TypeScript, and how do you declare the data type of a variable or function parameter using type annotations?
+// Question 2: Interfaces
 
-// 8 How does the "this" keyword work in JavaScript?
+// Explain the role of interfaces in TypeScript. Provide an example of an interface and how it can be used in defining the structure of an object.
+// Question 3: Classes
 
-// 10 Explain the concept of "callback functions" and provide an example of their use.
+// Describe the use of classes in TypeScript. Create a simple TypeScript class with a constructor and a method.
+// Question 4: Generics
 
-// Question 10: What is an "arrow function" in JavaScript, and how does it differ from regular functions?
+// What are generics in TypeScript, and why are they useful? Provide an example of a TypeScript function that uses generics.
+// Question 5: Enums
 
-// Question 11: What are "promises" in JavaScript, and how do they work?
+// What is an enum in TypeScript, and how does it work? Create an enum for days of the week and assign numeric values to them.
+// Question 6: Type Inference
 
-// Question 12: What is "asynchronous programming," and how is it achieved in JavaScript?
+// Explain type inference in TypeScript. Provide an example where TypeScript can infer the type of a variable without explicit type annotations.
+// Question 7: Union and Intersection Types
 
-// Question 14: Explain the difference between "null" and "undefined."
+// Differentiate between union types and intersection types in TypeScript. Provide an example of when you would use each type.
+// Question 8: Type Assertion
 
-// Question 15: What is the "DOM" in the context of web development and JavaScript?
+// What is type assertion, and when might you need to use it in TypeScript? Provide an example of a situation where type assertion is useful.
+// Question 9: Modules and Namespaces
 
-// Question 16: How do you handle errors in JavaScript, and what are the types of errors you might encounter?
+// What are modules and namespaces in TypeScript, and how do they help organize code and prevent naming conflicts? Provide an example of importing a module and using a namespace.
+// Question 10: TypeScript Compiler (tsc)
 
-// Question 17: Explain the use of "JSON" in JavaScript and how you can parse and stringify JSON data.
+// Explain the role of the TypeScript compiler (tsc) in a TypeScript project. How can you configure the compiler using a tsconfig.json file?

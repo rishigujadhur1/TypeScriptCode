@@ -1,68 +1,84 @@
-Question 3: Explain the difference between let, const, and var for variable declaration.
+Question 1: Type Annotations
 
-Answer:
+Type annotations in TypeScript are used to specify the data type of variables, function parameters, and return values. You can declare the data type using a colon followed by the type. For example:
 
-var has function scope, which means it's accessible throughout the function.
-let and const have block scope, and const is used for variables that won't be reassigned.
-
-Question 7: What is the difference between "null" and "undefined" in JavaScript?
-
-Answer:
-
-null represents an intentional absence of any object value.
-undefined represents a variable that has been declared but hasn't been assigned a value.
-
-Question 8: How does the "this" keyword work in JavaScript?
-
-Answer: The this keyword refers to the current object in which a function is being executed. Its value depends on how a function is called: in the global scope, this refers to the global object (e.g., window in a browser); within an object method, this refers to the object itself.
-
-Question 10: Explain the concept of "callback functions" and provide an example of their use.
-
-Answer: A callback function is a function that is passed as an argument to another function and is executed after that function has completed. Callbacks are often used for asynchronous operations. Example:
-
-```function fetchData(callback) {
-  // Simulating an async operation
-  setTimeout(function() {
-    const data = 'Some data';
-    callback(data);
-  }, 1000);
-}
-
-function processData(data) {
-  console.log('Processed data:', data);
-}
-
-fetchData(processData);
 ```
+let name: string = "John";
+function add(x: number, y: number): number {
+    return x + y;
+}```
+Question 2: Interfaces
 
-Question 10: What is an "arrow function" in JavaScript, and how does it differ from regular functions?
+Interfaces in TypeScript define the structure of objects or classes. They specify the names and types of properties and methods an object or class should have. For example:
 
-An arrow function is a concise way to write functions in JavaScript introduced in ECMAScript 6 (ES6).
+```
+interface Person {
+    name: string;
+    age: number;
+}```
+Question 3: Classes
 
-Arrow functions have a shorter syntax and lexically bind the this value, meaning they inherit this from their surrounding code, unlike regular functions, which have their own this context.
+Classes in TypeScript are used for object-oriented programming. They can have properties and methods. Here's a simple example:
 
-Question 11: What are "promises" in JavaScript, and how do they work?
+```
+class Animal {
+    constructor(public name: string) {}
+    makeSound() {
+        console.log("Generic animal sound");
+    }
+}```
+Question 4: Generics
 
-Promises are a pattern for handling asynchronous operations in JavaScript. They represent a value that may not be available yet but will be at some point in the future. Promises have three states: pending, fulfilled, and rejected.
+Generics in TypeScript allow you to write reusable, type-safe functions and classes by defining placeholder types. For example:
 
-They are used to handle asynchronous tasks like network requests and file operations, making it easier to manage asynchronous code flow.
+```
+function identity<T>(arg: T): T {
+    return arg;
+}```
+Question 5: Enums
 
-Question 12: What is "asynchronous programming," and how is it achieved in JavaScript?
+Enums in TypeScript provide a way to define a set of named numeric constants. Here's an example for days of the week:
 
-Asynchronous programming is a way of writing code that doesn't block the execution of other tasks while waiting for a time-consuming operation to complete. In JavaScript, asynchronous programming is achieved using callbacks, promises, async/await, and event listeners. It allows the program to continue executing other tasks while waiting for potentially time-consuming operations to finish.
+```
+enum DaysOfWeek {
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+}```
+Question 6: Type Inference
 
-Question 14: Explain the difference between "null" and "undefined."
+Type inference in TypeScript allows the compiler to automatically determine the type of a variable or expression based on its value and usage context. For example:
 
-null represents the intentional absence of any object value or a variable with no value assigned. It is an explicit assignment by a programmer. undefined, on the other hand, indicates that a variable has been declared but has not been assigned a value yet. It is the default value for uninitialized variables.
+```
+let message = "Hello, TypeScript!"; // TypeScript infers the type as string.```
+Question 7: Union and Intersection Types
 
-Question 15: What is the "DOM" in the context of web development and JavaScript?
+Union types (|) allow a value to be one of several types, while intersection types (&) combine multiple types. For example:
+```
+let result: number | string;
+type Point = { x: number } & { y: number };```
+Question 8: Type Assertion
 
-The DOM, or Document Object Model, is a programming interface for web documents. It represents the structure of a web page as a tree of objects, where each object corresponds to a part of the page, such as elements and their attributes. JavaScript can interact with and manipulate the DOM to dynamically update the content and structure of web pages.
+Type assertion in TypeScript allows you to override the compiler's type inference when you know the type better. For example:
+```
+let strLength: number = (someValue as string).length;```
+Question 9: Modules and Namespaces
 
-Question 16: How do you handle errors in JavaScript, and what are the types of errors you might encounter?
+Modules in TypeScript help organize code, while namespaces (deprecated in favor of ES6 modules) prevent naming conflicts. For example:
+```
+// Importing a module
+import { MyModule } from './my-module';
 
-Errors in JavaScript can be handled using try...catch blocks. There are various types of errors, including syntax errors, runtime errors, and logical errors. Common built-in error objects in JavaScript include Error, SyntaxError, TypeError, and ReferenceError.
+// Namespace
+namespace MyNamespace {
+    export function myFunction() {
+        // ...
+    }
+}```
+Question 10: TypeScript Compiler (tsc)
 
-Question 17: Explain the use of "JSON" in JavaScript and how you can parse and stringify JSON data.
-
-JSON, or JavaScript Object Notation, is a lightweight data interchange format. In JavaScript, you can parse JSON data using JSON.parse() to convert a JSON string into a JavaScript object and stringify JavaScript objects into JSON format using JSON.stringify().
+The TypeScript compiler (tsc) transpiles TypeScript files into JavaScript. You can configure it using a tsconfig.json file to control the compilation process, including target versions, output directories, and other settings.
